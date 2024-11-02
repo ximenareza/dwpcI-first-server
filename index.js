@@ -7,12 +7,13 @@ import http from "http";
 // (request, response) 
 
 const server = http.createServer((req, res) => {
-  console.log("> Se ha recibido una petición."); 
-  // Respondemos 
-  res.write("Hola");
-  // Se termina la conexión
-	res.end();
-}); 
+    // Creando un logger de peticiones
+      console.log(`📣 CLIENT-REQUEST: ${req.method} ${req.url}`);
+      console.log(`url: ${JSON.stringify(req.headers, null, "\t")}`);
+      res.write("Check the system terminal...")
+      res.end();
+});
+
 
 // 3. Se pone a trabajar el servidor 
 // Se le pasa un callback que se ejecutara cunado
